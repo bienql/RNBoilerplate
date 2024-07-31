@@ -1,0 +1,109 @@
+diff --git a/node_modules/@react-native-masked-view/masked-view/LICENSE b/node_modules/@react-native-masked-view/masked-view/LICENSE
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@react-native-masked-view/masked-view/README.md b/node_modules/@react-native-masked-view/masked-view/README.md
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@react-native-masked-view/masked-view/RNCMaskedView.podspec b/node_modules/@react-native-masked-view/masked-view/RNCMaskedView.podspec
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@react-native-masked-view/masked-view/android/build.gradle b/node_modules/@react-native-masked-view/masked-view/android/build.gradle
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@react-native-masked-view/masked-view/android/src/main/AndroidManifest.xml b/node_modules/@react-native-masked-view/masked-view/android/src/main/AndroidManifest.xml
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@react-native-masked-view/masked-view/android/src/main/ic_launcher-web.png b/node_modules/@react-native-masked-view/masked-view/android/src/main/ic_launcher-web.png
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@react-native-masked-view/masked-view/android/src/main/java/org/reactnative/maskedview/RNCMaskedView.java b/node_modules/@react-native-masked-view/masked-view/android/src/main/java/org/reactnative/maskedview/RNCMaskedView.java
+old mode 100644
+new mode 100755
+index 264fdf7..01010e3
+--- a/node_modules/@react-native-masked-view/masked-view/android/src/main/java/org/reactnative/maskedview/RNCMaskedView.java
++++ b/node_modules/@react-native-masked-view/masked-view/android/src/main/java/org/reactnative/maskedview/RNCMaskedView.java
+@@ -17,6 +17,8 @@ public class RNCMaskedView extends ReactViewGroup {
+   private boolean mBitmapMaskInvalidated = false;
+   private Paint mPaint;
+   private PorterDuffXfermode mPorterDuffXferMode;
++  private boolean mRemovalTransitionStarted = false;
++
+ 
+   public RNCMaskedView(Context context) {
+     super(context);
+@@ -77,17 +79,33 @@ public class RNCMaskedView extends ReactViewGroup {
+   }
+ 
+   private void updateBitmapMask() {
+-    if (this.mBitmapMask != null) {
+-      this.mBitmapMask.recycle();
++    if (!mRemovalTransitionStarted) {
++      if (this.mBitmapMask != null) {
++        this.mBitmapMask.recycle();
++      }
++
++      View maskView = getChildAt(0);
++      if (maskView != null) {
++        maskView.setVisibility(View.VISIBLE);
++        this.mBitmapMask = getBitmapFromView(maskView);
++        maskView.setVisibility(View.INVISIBLE);
++      } else{
++        this.mBitmapMask = null;
++      }
+     }
++  }
+ 
+-    View maskView = getChildAt(0);
+-    if (maskView != null) {
+-      maskView.setVisibility(View.VISIBLE);
+-      this.mBitmapMask = getBitmapFromView(maskView);
+-      maskView.setVisibility(View.INVISIBLE);
+-    } else{
+-      this.mBitmapMask = null;
++  @Override
++  public void startViewTransition(View view) {
++    super.startViewTransition(view);
++    mRemovalTransitionStarted = true;
++  }
++  
++  @Override
++  public void endViewTransition(View view) {
++    super.endViewTransition(view);
++    if (mRemovalTransitionStarted) {
++      mRemovalTransitionStarted = false;
+     }     
+   }
+ 
+diff --git a/node_modules/@react-native-masked-view/masked-view/android/src/main/java/org/reactnative/maskedview/RNCMaskedViewManager.java b/node_modules/@react-native-masked-view/masked-view/android/src/main/java/org/reactnative/maskedview/RNCMaskedViewManager.java
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@react-native-masked-view/masked-view/android/src/main/java/org/reactnative/maskedview/RNCMaskedViewPackage.java b/node_modules/@react-native-masked-view/masked-view/android/src/main/java/org/reactnative/maskedview/RNCMaskedViewPackage.java
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@react-native-masked-view/masked-view/index.js b/node_modules/@react-native-masked-view/masked-view/index.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@react-native-masked-view/masked-view/ios/RNCMaskedView.h b/node_modules/@react-native-masked-view/masked-view/ios/RNCMaskedView.h
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@react-native-masked-view/masked-view/ios/RNCMaskedView.m b/node_modules/@react-native-masked-view/masked-view/ios/RNCMaskedView.m
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@react-native-masked-view/masked-view/ios/RNCMaskedView.xcodeproj/project.pbxproj b/node_modules/@react-native-masked-view/masked-view/ios/RNCMaskedView.xcodeproj/project.pbxproj
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@react-native-masked-view/masked-view/ios/RNCMaskedViewManager.h b/node_modules/@react-native-masked-view/masked-view/ios/RNCMaskedViewManager.h
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@react-native-masked-view/masked-view/ios/RNCMaskedViewManager.m b/node_modules/@react-native-masked-view/masked-view/ios/RNCMaskedViewManager.m
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@react-native-masked-view/masked-view/js/MaskedView.js b/node_modules/@react-native-masked-view/masked-view/js/MaskedView.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@react-native-masked-view/masked-view/js/MaskedViewTypes.js b/node_modules/@react-native-masked-view/masked-view/js/MaskedViewTypes.js
+old mode 100644
+new mode 100755
+diff --git a/node_modules/@react-native-masked-view/masked-view/types/index.d.ts b/node_modules/@react-native-masked-view/masked-view/types/index.d.ts
+old mode 100644
+new mode 100755

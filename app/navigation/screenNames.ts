@@ -1,0 +1,9 @@
+export const SCREEN = {
+  HOME_DRAWER: 'HOME_DRAWER',
+  HOME_TAB: 'HOME_TAB',
+  HOME: 'HOME',
+  LOGIN: 'LOGIN',
+  EX_API: 'EX_API',
+  EX_IMAGE: 'EX_IMAGE',
+  EX_WEBVIEW: 'EX_WEBVIEW',
+};

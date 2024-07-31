@@ -1,0 +1,250 @@
+import { Dimensions, StyleSheet } from 'react-native';
+// import {Dimensions} from 'react-native';
+
+// const {width} = Dimensions.get('window');
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f5f5f5',
+  },
+  backgroundImage: {
+    flex: 1,
+  },
+  scrollViewWrapper: {
+    flex: 1,
+    overflow: 'hidden',
+  },
+  scrollView: {
+    // marginBottom: 80,
+  },
+  headerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 25,
+    minHeight: 85,
+  },
+  bodyContainer: {
+    paddingBottom: 20,
+  },
+  wrapMenu: {
+    marginLeft: 4,
+    marginRight: 12,
+  },
+  wrapMenuIcon: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  menuIcon: {
+    width: 28,
+    height: 28,
+  },
+  blankSpacer: {
+    width: 44,
+  },
+  imageProfileHome: {
+    width: 44,
+    height: 47,
+    borderRadius: 44,
+  },
+  wrapButton: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginVertical: 25,
+    marginHorizontal: 35,
+    marginTop: 9,
+  },
+  buttonLogIn: {
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: 36,
+    // paddingVertical: 5,
+  },
+  buttonJoinNow: {
+    borderRadius: 10,
+    // borderWidth: 1,
+    borderColor: '#fff',
+    backgroundColor: '#FFFFFF',
+    alignItems: 'center',
+    alignContent: 'center',
+    justifyContent: 'center',
+    minHeight: 36,
+
+    // minWidth: 135,
+    // paddingBottom: 6,
+    // paddingTop: 6,
+  },
+  loginText: {
+    // lineHeight: 22,
+    color: '#FFFFFF',
+    textAlign: 'center',
+  },
+  joinText: {
+    // lineHeight: 22,
+    color: '#F27141',
+    textAlign: 'center',
+  },
+  swiperBanner: {},
+  imageBanner: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    resizeMode: 'cover',
+    marginTop: 14,
+  },
+  iconFeature: {},
+  featureSelect: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginVertical: 14,
+  },
+  iconsFeature: {
+    // width: 50,
+    // height: 50,
+    // borderRadius: 10,
+    // backgroundColor: '#FFFFFF',
+    marginRight: 10,
+    marginLeft: 10,
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    // marginBottom: 5,
+    // shadowColor: '#000',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 3.84,
+    // elevation: 5,
+  },
+  borderRadiusRed: {
+    borderWidth: 1,
+    borderColor: 'red',
+  },
+  colorRed: {
+    color: 'red',
+  },
+  textFeature: {
+    // marginRight: 7,
+    // marginLeft: 7,
+    fontSize: 11,
+    justifyContent: 'center',
+    alignItems: 'center',
+    lineHeight: 13.5,
+    textAlign: 'center',
+  },
+  welcome: {
+    paddingHorizontal: 25,
+    paddingTop: 12,
+    paddingBottom: 20,
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    backgroundColor: '#f5f5f5',
+  },
+  welcomeText: {
+    lineHeight: 21,
+  },
+  welcomeView: {
+    overflow: 'hidden',
+    backgroundColor: '#f5f5f5',
+    marginBottom: 80,
+  },
+  welcomeHomeText: {
+    alignSelf: 'center',
+  },
+  validateEmailContainer: {
+    backgroundColor: '#6463B1',
+  },
+  validateEmail: {
+    // flexDirection: 'row',
+    // justifyContent: 'space-around',
+    // marginTop: 30,
+    // paddingBottom: 5,
+    // marginTop: -100,
+    flex: 1,
+    maxHeight: 110,
+  },
+  validateText: {
+    fontWeight: '400',
+    lineHeight: 18,
+    color: '#FFFFFF',
+    maxWidth: '60%',
+  },
+  buttonVerify: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  validateVerify: {
+    paddingHorizontal: 17,
+    paddingVertical: 4,
+    backgroundColor: '#A90069',
+    color: '#FFFFFF',
+    borderRadius: 5,
+    fontWeight: '700',
+    lineHeight: 15,
+  },
+  validateSkip: {
+    fontWeight: '700',
+    color: '#A90069',
+    lineHeight: 15,
+    paddingHorizontal: 17,
+    paddingVertical: 4,
+    borderRadius: 5,
+  },
+  gbBody: {},
+  carouselCustom: { marginBottom: 0, paddingBottom: 0, paddingTop: 0, marginTop: 0 },
+  paginationContainer: {
+    paddingTop: 1,
+    marginBottom: 1,
+    paddingBottom: 1,
+  },
+  dotStyles: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    marginHorizontal: 0.5,
+    backgroundColor: '#FC547C',
+  },
+  inactiveDotStyle: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    marginHorizontal: 1,
+    backgroundColor: '#FFFFFF',
+  },
+  gameAds: {
+    position: 'absolute',
+    right: 0,
+    zIndex: 1,
+    bottom: 85,
+  },
+  removeGameAds: {
+    position: 'absolute',
+    top: 8,
+    right: 8,
+  },
+  pdb12: { paddingBottom: 12 },
+  pdt25: { paddingTop: 25 },
+  pdt40: { paddingTop: 45 },
+  pdt0: { paddingTop: 0 },
+  heightIOS170: { minHeight: 170 },
+  heightAndroid155: { minHeight: 265 },
+  heightIOS245: { minHeight: 245 },
+  heightAndroid230: { minHeight: 230 },
+  fullView: {
+    position: 'absolute',
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
+    zIndex: 99,
+    justifyContent: 'center',
+  },
+  width45: {
+    width: '45%',
+  },
+  itemCenter: { alignItems: 'center' },
+  emailVeri1TextView: { justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'row' },
+});
+
+export default styles;
